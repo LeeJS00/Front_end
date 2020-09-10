@@ -9,6 +9,7 @@ export default class Prob17 extends Component {
     this.onChangeAnswer = this.onChangeAnswer.bind(this);
     this.handleShowDialog = this.handleShowDialog.bind(this);
     this.submit = this.submit.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.state = {
       link : "/",
       answer:"",
@@ -27,6 +28,11 @@ export default class Prob17 extends Component {
       console.log(response);
       this.setState({ img: "data:;base64," + base64 });
     });
+  }
+  handleKeyPress = (e) => {
+    if(e.key ==="Enter") {
+      this.submit();
+    }
   }
   handleShowDialog = () => {
     this.setState({ isOpen: !this.state.isOpen });
@@ -96,6 +102,7 @@ export default class Prob17 extends Component {
               required
               value={this.state.answer}
               onChange={this.onChangeAnswer}
+              onKeyPress={this.handleKeyPress}
             />
             </form>
             <button className={'btn'} onClick={this.submit}>확인</button>

@@ -77,7 +77,7 @@ class App extends Component {
     return (
       <Router history="history">
         <div className="background-black">
-          <nav className="navbar navbar-expand navbar-dark bg-dark">            
+          <nav className="navbar navbar-expand navbar-dark navbar_">            
             <img alt='logo' src = {mainLogo} className="logo"></img>
             <div className='pocahome'>
               <a href= 'https://google.com' className='pocahome'> 포카전 홈 </a>

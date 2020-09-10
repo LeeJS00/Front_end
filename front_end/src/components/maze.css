@@ -13,7 +13,7 @@
     color:white;
     min-width: 90vw;
     min-height: 40vh;
-    margin: 5vh;
+    margin: 5vh 5vw;
     padding: 2vh;
     border: 0.1vw solid white;
     word-break: break-all;
@@ -54,7 +54,7 @@
     min-width: 90vw;
     min-height: 15vh;
     background-color: black;
-    margin: 5vh;
+    margin: 5vh 5vw;
 }
 .user-container {    
     display: flex;
@@ -64,7 +64,7 @@
     border:1px solid white;
     min-width: 90vw;
     background-color: black;
-    margin: 5vh;
+    margin: 5vh 5vw;
     padding: 2vh;
 }
 .user-label {    

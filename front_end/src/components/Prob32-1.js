@@ -9,12 +9,18 @@ export default class Prob32_1 extends Component {
     this.onChangeAnswer = this.onChangeAnswer.bind(this);
     this.handleShowDialog = this.handleShowDialog.bind(this);
     this.submit = this.submit.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.state = {
       answer:"",
       link : "/",
       isOpen:false,
       img:null
     };
+  }
+  handleKeyPress = (e) => {
+    if(e.key ==="Enter") {
+      this.submit();
+    }
   }
   componentDidMount() {
     dataService.getImage('32_2-1').then(response=>{
@@ -93,6 +99,7 @@ export default class Prob32_1 extends Component {
               required
               value={this.state.answer}
               onChange={this.onChangeAnswer}
+              onKeyPress={this.handleKeyPress}
             />
             </form>
             <button className={'btn'} onClick={this.submit}>확인</button>

@@ -8,6 +8,7 @@ export default class Prob1 extends Component {
     super(props);
     this.onChangeAnswer = this.onChangeAnswer.bind(this);
     this.submit = this.submit.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.state = {
       link : "/",
       answer:"",
@@ -30,6 +31,11 @@ export default class Prob1 extends Component {
     }).catch(function (error) {
       console.log(error);
     });;
+  }
+  handleKeyPress = (e) => {
+    if(e.key ==="Enter") {
+      this.submit();
+    }
   }
   render() {
     return (
@@ -60,6 +66,7 @@ export default class Prob1 extends Component {
               required
               value={this.state.answer}
               onChange={this.onChangeAnswer}
+              onKeyPress={this.handleKeyPress}
             />
             </form>
             <button className={'btn'} onClick={this.submit}>확인</button>
