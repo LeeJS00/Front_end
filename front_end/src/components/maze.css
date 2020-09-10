@@ -1,0 +1,110 @@
+
+.btn{
+    color:white;
+    border:1px solid white;
+    margin-left: 0vw;
+    margin-bottom: 10vh;
+}
+
+.story {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color:white;
+    min-width: 90vw;
+    min-height: 40vh;
+    margin: 5vh;
+    padding: 2vh;
+    border: 0.1vw solid white;
+    word-break: break-all;
+    
+}
+.center{
+    text-align: center;
+}
+.marginbottom{
+    margin-bottom: 3vh;
+}
+
+.hline {
+    width: 90vw;
+    color: white;
+    background-color: white;
+    height: 0.2vh;
+}
+.answer {
+    width: 60vw;
+    height: 2.5em;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-bottom: 10vh;
+}
+.flex-container {
+    display: flex;
+}
+.select-title {
+    color: white;
+    min-width: 90vw;
+    min-height: 5vh;
+    margin: 5vh;
+}
+.select-answer {
+    color: white;
+    border:1px solid white;
+    min-width: 90vw;
+    min-height: 15vh;
+    background-color: black;
+    margin: 5vh;
+}
+.user-container {    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;    
+    border:1px solid white;
+    min-width: 90vw;
+    background-color: black;
+    margin: 5vh;
+    padding: 2vh;
+}
+.user-label {    
+    width: 10vw;
+    margin: 0.7vh;
+}
+.user-input {    
+    width: 60vw;
+    height: 2.5em;
+}
+.mirror {
+    font-size: 3em;
+}
+.imageShow {
+    width: 30vw;
+}
+.imageShow2 {
+    width: 50vw;
+}
+.popupDialog {
+    position: absolute;
+    background-color: transparent;
+    width: 60vw;
+    height: 1vh;
+    padding: 1vh;
+}
+.popup {
+    position: absolute;
+    width: 60vw;
+    height: undefined;    
+}
+.popupDialog21 {
+    position: absolute;
+    background-color: black;
+    width: 80vw;
+    height: 1vh;
+    padding: 1vh;
+}
+.popup21 {
+    position: absolute;
+    width: 80vw;
+    height: undefined;    
+}
