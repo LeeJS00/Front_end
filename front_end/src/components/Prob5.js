@@ -60,7 +60,7 @@ export default class Prob5 extends Component {
           <form>
             <input
               className="answer"
-              placeholder="정답 형식: 숫자"
+              placeholder="정답 형식: 한글"
               type="text"
               required
               value={this.state.answer}
