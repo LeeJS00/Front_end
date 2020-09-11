@@ -68,7 +68,7 @@ export default class Prob10 extends Component {
           <br></br><br></br>둘은 청암 방향으로 뛰어가기 시작했다.
           <br></br><br></br>하지만 청암의 입구는 이미 좀비로 가득했고 둘은 108계단 방향으로 재빨리 도망친다.
           <br></br><br></br>“아마 무은재 기념관에는 아직 좀비들이 도착하지 못했을 거야 그쪽으로 가자.” 
-          <br></br><br></br>무은재 기념관에 도착한 승훈과 지성은 암호로 잠긴 무은재 기념관의 정문을 연다.</div></div>
+          <br></br><br></br>무은재기념관에 도착한 승훈과 지성은 암호로 잠긴 무은재기념관의 정문을 연다.</div></div>
         <hr className="hline"></hr>
         
         {this.state.isOpen && (
