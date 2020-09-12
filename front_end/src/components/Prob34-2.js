@@ -55,7 +55,7 @@ export default class Prob34_2 extends Component {
         <hr className="hline"></hr>
         <div className="story">
           <div className="marginbottom">[문제 34]
-          <br></br><br></br>포닉스의 명성을 세계에 퍼뜨리기 위해 어학연수를 떠난다
+          <br></br><br></br>포닉스의 명성을 세계에 퍼뜨리기 위해 어학연수를 떠난다.
           <br></br><br></br>한국에서 출발해서,
           <br></br><br></br>이탈리아
           <br></br><br></br>프랑스

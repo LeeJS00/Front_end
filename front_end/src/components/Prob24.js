@@ -83,7 +83,7 @@ export default class Prob24 extends Component {
         )}
         <div className="story">
           <div className="marginbottom">[문제 24]
-          <br></br><br></br> "와이파이에 연결해야하는데 같은 사람이 장난을 쳐놓았다"
+          <br></br><br></br> "와이파이에 연결해야 하는데 같은 사람이 장난을 쳐놓았다."
           <br></br><br></br>paohisdogtbookelightcschoolhspecialkalphabetaelephantsiaddressingsabsorbinglyt
           <br></br><br></br>보안
           <br></br><br></br>네트워크 보안 키 입력

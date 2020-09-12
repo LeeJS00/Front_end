@@ -54,7 +54,7 @@ export default class Prob30_2 extends Component {
         <hr className="hline"></hr>
         <div className="story">
           <div className="marginbottom">[문제 30]
-          <br></br><br></br>말씀이 다섯개의 입을 통해 전해졌다… 어떤 소리가 날까?
+          <br></br><br></br>말씀이 다섯 개의 입을 통해 전해졌다… 어떤 소리가 날까?
         </div>        
         </div> 
         {((this.state.link === "/")?(

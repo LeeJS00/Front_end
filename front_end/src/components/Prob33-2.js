@@ -58,7 +58,7 @@ export default class Prob33_2 extends Component {
           <br></br><br></br>아무도 본 사람이 없다
           <br></br><br></br>아무 발자국도 없다
           <br></br><br></br>아 저 혼자 고요하고 맑고
-          <br></br><br></br>저 혼자 아름답다. 
+          <br></br><br></br>저 혼자 아름답다
           <br></br><br></br><br></br>오늘은 무슨 날일까.
         </div>        
         </div> 

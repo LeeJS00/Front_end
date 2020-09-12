@@ -54,7 +54,7 @@ export default class Prob3 extends Component {
         <div className="story">
           <div className="marginbottom">[문제 3]
           <br></br><br></br>동생 혼자 있으면 아무것도 없다.
-          <br></br><br></br>형이 동생 앞에 서면 형 혼자 있는것보다 두배 더 크다.
+          <br></br><br></br>형이 동생 앞에 서면 형 혼자 있는 것보다 두 배 더 크다.
           <br></br><br></br>형제의 이름은?
         </div>        
         </div> 

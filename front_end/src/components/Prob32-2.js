@@ -58,7 +58,7 @@ export default class Prob32_2 extends Component {
           <br></br><br></br><br></br> G70
           <br></br><br></br>G80
           <br></br><br></br>G90
-          <br></br><br></br>We don’t have sister 
+          <br></br><br></br>We don’t have sister .
         </div>        
         </div> 
         {((this.state.link === "/")?(

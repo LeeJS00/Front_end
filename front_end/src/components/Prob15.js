@@ -51,9 +51,9 @@ export default class Prob15 extends Component {
         <hr className="hline"></hr>
         <div className="story">
           <div className="marginbottom">[문제 15]
-          <br></br><br></br>우리는 늘 서로에게 끌려
+          <br></br><br></br>우리는 늘 서로에게 끌려.
           <br></br><br></br>하지만 우리는 둘 다 너무 이기적이야.
-          <br></br><br></br>우리 사이는 더 멀어지지도, 가까워지지도 않아
+          <br></br><br></br>우리 사이는 더 멀어지지도, 가까워지지도 않아.
           <br></br><br></br>너가 보는 우리 관계와 남들이 보는 우리 관계는 달라.
           <br></br><br></br>얼마나 다른 것 같아?
         </div>        

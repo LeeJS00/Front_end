@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Home from "./components/0_home";
@@ -73,14 +73,15 @@ import User4 from "./components/User4";
 import mainLogo from './method-draw-image.svg'
 
 class App extends Component {
+  
   render() {
     return (
       <Router history="history">
         <div className="background-black">
           <nav className="navbar navbar-expand navbar-dark navbar_">            
-            <img alt='logo' src = {mainLogo} className="logo"></img>
+            <Link to='/'><img alt='logo' src = {mainLogo} className="logo"></img></Link>
             <div className='pocahome'>
-              <a href= 'https://google.com' className='pocahome'> 포카전 홈 </a>
+              <a href= 'http://sciencefestival.postech.ac.kr' className='pocahome'> 포카전 홈 </a>
             </div>            
           </nav>
 

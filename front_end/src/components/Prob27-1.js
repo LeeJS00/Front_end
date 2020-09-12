@@ -60,7 +60,7 @@ export default class Prob27_1 extends Component {
           <div className="marginbottom">[문제 27]
           <br></br><br></br>아빠는 사과를 싫어해.
           <br></br><br></br>나는 아빠의 이동수단이야.
-          <br></br><br></br>가장 큰 나의 크기는?
+          <br></br><br></br>가장 큰 나의 이름은?
         </div>        
         </div> 
         {((this.state.link === "/")?(

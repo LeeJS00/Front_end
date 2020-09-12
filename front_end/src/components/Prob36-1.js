@@ -53,7 +53,7 @@ export default class Prob36_1 extends Component {
           </div></div>
         <hr className="hline"></hr>
         <div className="story">
-          <div className="marginbottom">[문제 36_2층을 골랐을 때]
+          <div className="marginbottom">[문제 36]
           <br></br><br></br>O 10E O 2N O 20E O 1N O 1N7E O 1S2E O 2S10W O 1S O 12E O 1S4W O
           </div>        
         </div> 

@@ -54,7 +54,7 @@ export default class Prob22 extends Component {
         <hr className="hline"></hr>
         <div className="story">
           <div className="marginbottom">[문제 22]
-          <br></br><br></br>미국에서 엄마는 한 발짝씩, 아들은 두 발짝씩 움직인다
+          <br></br><br></br>미국에서 엄마는 한 발짝씩, 아들은 두 발짝씩 움직인다.
           <br></br><br></br>한국에서 엄마는 왼쪽, 아들은 오른쪽을 보고있다.
           <br></br><br></br> <text style={{marginLeft: 20 }}>Hello world</text>
         </div>        

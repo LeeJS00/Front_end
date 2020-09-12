@@ -54,10 +54,10 @@ export default class Prob29_2 extends Component {
           <div className="marginbottom">[문제 29]
           <br></br><br></br>나
           <br></br><br></br>멀리
-          <br></br><br></br>바느질 두번
+          <br></br><br></br>바느질 두 번
           <br></br><br></br>토르 헤위에르달이 탄 배
           <br></br><br></br>차
-          <br></br><br></br>암사슴 두마리
+          <br></br><br></br>암사슴 두 마리
         </div>        
         </div> 
         {((this.state.link === "/")?(
@@ -65,7 +65,7 @@ export default class Prob29_2 extends Component {
           <form>
             <input
               className="answer"
-              placeholder="정답 형식: 한글ㅇ"
+              placeholder="정답 형식: 한글"
               type="text"
               required
               value={this.state.answer}
