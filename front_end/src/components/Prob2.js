@@ -61,7 +61,7 @@ export default class Prob2 extends Component {
           <br></br><br></br>점을 찍으니 공간이 열렸고      	
           <br></br><br></br>선을 긋자 흐름이 생겼다.
           <br></br><br></br>결국 우리는 한낱 프로그램에 불과했다.
-          <br></br><br></br>; ~~;~~~; ~ ; ~  ;~  ;</div>        
+          <br></br><br></br><pre style={{color:"white"}}>; ~~;~~~; ~ ; ~  ;~  ;</pre></div>        
         </div> 
         {((this.state.link === "/")?(
           <div className="flex-container">
