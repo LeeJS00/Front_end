@@ -92,7 +92,7 @@ export default class Prob14 extends Component {
           </div>
         ):(
           <div className='center'>
-          <Link to={("/df1g62Xze+GSUvzXwL9+0oFtK0RyXFb14UfP+b0tbrCp2FPbwpLeH4RkPMW3Fv/Uka4wK9Z155ZkuN/wktIpGQ==")} ><button className={'btn'}>이동</button></Link>
+          <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
       </div>

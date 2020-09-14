@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:3000/",
+  baseURL: "http://laybirinth.postech.ac.kr/",
   headers: {
     "Content-type": "application/json"
   }

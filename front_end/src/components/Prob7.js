@@ -108,7 +108,7 @@ export default class Prob7 extends Component {
           </div>
         ):(
           <div className='center'>
-          <Link to={("/2QnAedbnQBy3eym85P4wtfzg9Qp9arnMBPNr6uqIyTi96OeIPJlR3Sagv7x4L/u4fc8z9cdb0MjlNtKIkq1cFg==")} ><button className={'btn'}>이동</button></Link>
+          <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
       </div>

@@ -74,7 +74,7 @@ export default class Prob16 extends Component {
           </div>
         ):(
           <div className='center'>
-          <Link to={("/8kIqsYie3LZ3rao0MRqePjTsmGUNgkztlsGnIeaxcCEPHHwyBYTT1WOdTZR3jaIwoknNtEmM3K+BD+JlBokwsg==")} ><button className={'btn'}>이동</button></Link>
+          <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
       </div>

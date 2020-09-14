@@ -106,7 +106,7 @@ export default class Prob32_1 extends Component {
           </div>
         ):(
           <div className='center'>
-          <Link to={("/V8CnHqaHhJglXgZzsbvXgVCEqBF0gtb6wzJ98v9z3J81Xc7ZhrLiXVDadI0RbNvVyRyRlOSyhu+Z42GlWGakxw==")} ><button className={'btn'}>이동</button></Link>
+          <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
       </div>
