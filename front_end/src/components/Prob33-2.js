@@ -12,7 +12,17 @@ export default class Prob33_2 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
+  }
+  componentDidMount() {
+    dataService.goPage(33).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
   }
 
   handleKeyPress = (e) => {
@@ -40,7 +50,8 @@ export default class Prob33_2 extends Component {
 
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom"> 향수가 뿌려진 외투를 가속기연구소에서 멀리 떨어진 곳에 두고,
@@ -82,7 +93,8 @@ export default class Prob33_2 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

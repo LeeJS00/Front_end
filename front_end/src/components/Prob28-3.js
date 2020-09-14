@@ -13,9 +13,18 @@ export default class Prob28_3 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
   }
-
+  componentDidMount() {
+    dataService.goPage(28).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
+  }
   handleKeyPress = (e) => {
     if(e.key ==="Enter") {
       this.submit();
@@ -40,7 +49,8 @@ export default class Prob28_3 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">하지만 몇 분 지나지 않아 아래서 유리가 깨지는 소리에 잠을 깬다.
@@ -77,7 +87,8 @@ export default class Prob28_3 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

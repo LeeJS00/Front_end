@@ -15,6 +15,9 @@ class UserDataService {
     return http.post('/api/end_user',{name : _name, id: _id, phone :_phone,level:_level});
   }
 
+  goPage(_id) {
+    return http.post('/api/pages',{pid:_id});
+  }
 }
 
 export default new UserDataService();

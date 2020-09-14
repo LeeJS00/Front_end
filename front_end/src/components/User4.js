@@ -14,9 +14,18 @@ export default class User4 extends Component {
       cnt:1,
       name:"",
       num:"",
-      tel:""
+      tel:"",
+      response:false
     };
-  }componentDidMount() {
+  }
+  componentDidMount() {    
+    dataService.goPage(36).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
     dataService.getUser().then(response=>{
       this.setState({
         cnt:response.data+1
@@ -63,7 +72,8 @@ export default class User4 extends Component {
     });
   }
   render() {    
-    return (
+    return (<div>
+      {((this.state.response) ? (
         <div>
         <div className="select-title">
           <div> 미궁의 {this.state.cnt}번째 클리어를 축하드립니다! </div>
@@ -117,6 +127,8 @@ export default class User4 extends Component {
           <Link to="/End"> <button className="btn" onClick={this.submit}>제출</button></Link>
         </div>   
       </div>
-    );
+    )
+    :(<div/>))}
+    </div>);
   }
 }

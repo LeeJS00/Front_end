@@ -12,7 +12,17 @@ export default class Prob3 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
+  }
+  componentDidMount() {
+    dataService.goPage(3).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
   }
   handleKeyPress = (e) => {
     if(e.key ==="Enter") {
@@ -39,7 +49,8 @@ export default class Prob3 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">비밀번호를 입력한 뒤 들어가 보니, 논문과 책들은 피로 난장판이 되어있었고, 교수님은 좀비에게 둘러싸여 있었다.
@@ -78,7 +89,8 @@ export default class Prob3 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
-  }
+        </div>)
+      :(<div/>))}
+      </div>);
+    }
 }

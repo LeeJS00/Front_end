@@ -13,7 +13,17 @@ export default class Prob38_1 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
+  }
+  componentDidMount() {
+    dataService.goPage(38).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
   }
 
   handleKeyPress = (e) => {
@@ -40,7 +50,8 @@ export default class Prob38_1 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">진정한 후 승훈과 대화한다.
@@ -77,7 +88,8 @@ export default class Prob38_1 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

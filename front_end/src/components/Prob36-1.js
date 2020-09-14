@@ -13,7 +13,17 @@ export default class Prob36_1 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
+  }
+  componentDidMount() {
+    dataService.goPage(36).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
   }
 
   handleKeyPress = (e) => {
@@ -40,7 +50,8 @@ export default class Prob36_1 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">그 후에 비명 소리와 함께 이상한 소리가 들린다.
@@ -77,7 +88,8 @@ export default class Prob36_1 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

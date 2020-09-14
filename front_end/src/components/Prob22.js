@@ -12,9 +12,18 @@ export default class Prob22 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
   }
-
+  componentDidMount() {
+    dataService.goPage(22).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
+  }
   handleKeyPress = (e) => {
     if(e.key ==="Enter") {
       this.submit();
@@ -39,7 +48,8 @@ export default class Prob22 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">현수가 멈춘 뒤 비웃으며 말한다. 
@@ -79,7 +89,8 @@ export default class Prob22 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

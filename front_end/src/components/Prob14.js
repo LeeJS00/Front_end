@@ -12,7 +12,17 @@ export default class Prob14 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
+  }
+  componentDidMount() {
+    dataService.goPage(14).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
   }
 
   handleKeyPress = (e) => {
@@ -39,7 +49,8 @@ export default class Prob14 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">승훈은 완강기 후크를 꺼내 지지대에 건 뒤 줄을 옥상 밖으로 던진다.
@@ -95,7 +106,8 @@ export default class Prob14 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

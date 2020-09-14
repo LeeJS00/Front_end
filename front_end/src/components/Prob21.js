@@ -14,10 +14,18 @@ export default class Prob21 extends Component {
       link : "/",
       answer:"",
       isOpen:false,
-      img:null
+      img:null,
+      response:false
     };
   }
   componentDidMount() {
+    dataService.goPage(21).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
     dataService.getImage('21-1').then(response=>{
       const base64 = btoa(
         new Uint8Array(response.data).reduce(
@@ -57,7 +65,8 @@ export default class Prob21 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">승훈은 어지러운 정신을 차리고 옆에 떨어진 유리조각을 집는다.
@@ -107,7 +116,8 @@ export default class Prob21 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

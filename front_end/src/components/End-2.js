@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link} from "react-router-dom";
 import "./maze.css"
+import dataService from "../services/user.service";
+
 
 export default class End2 extends Component {  
   constructor(props) {
@@ -9,9 +11,20 @@ export default class End2 extends Component {
 
     };
   }
+  componentDidMount() {
+    dataService.goPage(34).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
+  }
 
   render() {    
     return (
+      <div>
+      {((this.state.response) ? (
         <div>
         <div className="story">
           <div className="marginbottom">저의 다음 목적지는 [포스텍 대전캠퍼스 대피소]입니다.
@@ -26,6 +39,8 @@ export default class End2 extends Component {
           <Link to="/zxEnxC1NP6PPd/Pjn3Olr9ZBLL2ci33fn8H9vuMVjw41="> <button className="btn">완료</button></Link>
         </div>   
       </div>
-    );
+    )
+    :(<div/>))}
+    </div>);
   }
 }

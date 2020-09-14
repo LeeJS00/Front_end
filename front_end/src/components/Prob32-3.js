@@ -12,7 +12,17 @@ export default class Prob32_3 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
+  }
+  componentDidMount() {
+    dataService.goPage(32).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
   }
 
   handleKeyPress = (e) => {
@@ -39,7 +49,8 @@ export default class Prob32_3 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">연구소 안으로 들어왔을 때, 비상벨이 울리고 총을 든 사람들이 지성과 승훈을 잡아간다.
@@ -80,7 +91,8 @@ export default class Prob32_3 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

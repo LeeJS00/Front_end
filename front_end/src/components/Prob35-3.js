@@ -12,9 +12,18 @@ export default class Prob35_3 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
   }
-
+  componentDidMount() {
+    dataService.goPage(35).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
+  }
   handleKeyPress = (e) => {
     if(e.key ==="Enter") {
       this.submit();
@@ -39,7 +48,8 @@ export default class Prob35_3 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">“이론상 정밀한 백신을 개발했네요. 훌륭합니다. 하지만 저는 아직 그 백신을 믿을 수 없습니다. 먼저 동물로 임상 테스트를 해보도록 하겠습니다.”
@@ -79,7 +89,8 @@ export default class Prob35_3 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

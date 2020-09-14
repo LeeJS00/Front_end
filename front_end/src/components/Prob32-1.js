@@ -14,7 +14,8 @@ export default class Prob32_1 extends Component {
       answer:"",
       link : "/",
       isOpen:false,
-      img:null
+      img:null,
+      response:false
     };
   }
   handleKeyPress = (e) => {
@@ -23,6 +24,13 @@ export default class Prob32_1 extends Component {
     }
   }
   componentDidMount() {
+    dataService.goPage(32).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
     dataService.getImage('32_2-1').then(response=>{
       const base64 = btoa(
         new Uint8Array(response.data).reduce(
@@ -57,7 +65,8 @@ export default class Prob32_1 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">가속기연구소 사람들은 승훈을 들여보내고, 지금껏 승훈의 백신 개발 과정을 듣는다.
@@ -109,7 +118,8 @@ export default class Prob32_1 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

@@ -12,7 +12,17 @@ export default class Prob8 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
+  }
+  componentDidMount() {
+    dataService.goPage(8).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
   }
   handleKeyPress = (e) => {
     if(e.key ==="Enter") {
@@ -39,7 +49,8 @@ export default class Prob8 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">지성은 태호에게 조심스럽게 다가간다.
@@ -78,7 +89,8 @@ export default class Prob8 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

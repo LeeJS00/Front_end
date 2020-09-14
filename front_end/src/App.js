@@ -71,9 +71,9 @@ import User2 from "./components/User2";
 import User3 from "./components/User3";
 import User4 from "./components/User4";
 import mainLogo from './method-draw-image.svg'
+import { createMemoryHistory } from "history";
 
 class App extends Component {
-  
   render() {
     return (
       <Router history="history">

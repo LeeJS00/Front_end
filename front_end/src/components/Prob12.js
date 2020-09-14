@@ -12,7 +12,17 @@ export default class Prob12 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
+  }
+  componentDidMount() {
+    dataService.goPage(12).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
   }
   handleKeyPress = (e) => {
     if(e.key ==="Enter") {
@@ -39,7 +49,8 @@ export default class Prob12 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">“지성아, 이게 무슨 소리지?”
@@ -75,7 +86,8 @@ export default class Prob12 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

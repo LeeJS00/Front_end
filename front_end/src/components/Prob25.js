@@ -17,10 +17,18 @@ export default class Prob25 extends Component {
       isOpen:false,
       isOpen2:false,
       img:null,
-      img2:null
+      img2:null,
+      response:false
     };
   }
   componentDidMount() {
+    dataService.goPage(25).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
     dataService.getImage('25-1').then(response=>{
       const base64 = btoa(
         new Uint8Array(response.data).reduce(
@@ -28,7 +36,6 @@ export default class Prob25 extends Component {
           '',
         ),
       );
-      console.log(response);
       this.setState({ img: "data:;base64," + base64 });
     });
     dataService.getImage('25-2').then(response=>{
@@ -38,7 +45,6 @@ export default class Prob25 extends Component {
           '',
         ),
       );
-      console.log(response);
       this.setState({ img2: "data:;base64," + base64 });
     });
   }
@@ -80,7 +86,8 @@ export default class Prob25 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">“풀렸다! 뛰자!!”
@@ -148,7 +155,8 @@ export default class Prob25 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

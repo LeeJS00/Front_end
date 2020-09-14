@@ -14,10 +14,18 @@ export default class Prob17 extends Component {
       link : "/",
       answer:"",
       isOpen:false,
-      img:null
+      img:null,
+      response:false
     };
   }
   componentDidMount() {
+    dataService.goPage(17).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
     dataService.getImage('17-1').then(response=>{
       const base64 = btoa(
         new Uint8Array(response.data).reduce(
@@ -25,7 +33,6 @@ export default class Prob17 extends Component {
           '',
         ),
       );
-      console.log(response);
       this.setState({ img: "data:;base64," + base64 });
     });
   }
@@ -57,7 +64,8 @@ export default class Prob17 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">두 사람은 곧장 편의점 문을 잠근다.
@@ -112,7 +120,8 @@ export default class Prob17 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

@@ -14,7 +14,8 @@ export default class Prob10 extends Component {
       link : "/",
       answer:"",
       isOpen:false,
-      img:null
+      img:null,
+      response:false
     };
   }
   handleKeyPress = (e) => {
@@ -23,6 +24,13 @@ export default class Prob10 extends Component {
     }
   }
   componentDidMount() {
+    dataService.goPage(10).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
     dataService.getImage('10-1').then(response=>{
       const base64 = btoa(
         new Uint8Array(response.data).reduce(
@@ -30,7 +38,6 @@ export default class Prob10 extends Component {
           '',
         ),
       );
-      console.log(response);
       this.setState({ img: "data:;base64," + base64 });
     });
   }
@@ -57,7 +64,8 @@ export default class Prob10 extends Component {
     });;
   }
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">“좀비들이 냄새를 맡고 다시 몰려올 거야 어서 다른 장소로 가자.” 
@@ -111,7 +119,8 @@ export default class Prob10 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

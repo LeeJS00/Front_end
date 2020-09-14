@@ -12,7 +12,17 @@ export default class Prob9 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
+  }
+  componentDidMount() {
+    dataService.goPage(9).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
   }
   handleKeyPress = (e) => {
     if(e.key ==="Enter") {
@@ -39,7 +49,8 @@ export default class Prob9 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">승훈은 지성과 태호를 보며 교수님이 해주신 말씀을 떠올린다.
@@ -77,7 +88,8 @@ export default class Prob9 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

@@ -14,7 +14,8 @@ export default class Prob7 extends Component {
       answer:"",
       isOpen:false,
       link : "/",
-      imsrc:null
+      imsrc:null,
+      response:false
     };
   }
   handleKeyPress = (e) => {
@@ -23,6 +24,13 @@ export default class Prob7 extends Component {
     }
   }
   componentDidMount() {
+    dataService.goPage(7).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
     dataService.getImage('7-1').then(response=>{
       const base64 = btoa(
         new Uint8Array(response.data).reduce(
@@ -30,7 +38,6 @@ export default class Prob7 extends Component {
           '',
         ),
       );
-      console.log(response);
       this.setState({ imsrc: "data:;base64," + base64 });
     });
   }
@@ -56,7 +63,8 @@ export default class Prob7 extends Component {
   }
 
   render() {    
-    return (      
+    return (  <div>
+      {((this.state.response) ? (    
       <div>
         <div className="story">
           <div className="marginbottom">“태호는 1학년 때부터 같은 분반이었던 친구예요. 같은 과에 와서 지금까지도 친하게 지내고 있어요.”
@@ -111,7 +119,8 @@ export default class Prob7 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

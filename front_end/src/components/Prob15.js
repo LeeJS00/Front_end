@@ -12,9 +12,18 @@ export default class Prob15 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
   }
-
+  componentDidMount() {
+    dataService.goPage(15).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
+  }
   handleKeyPress = (e) => {
     if(e.key ==="Enter") {
       this.submit();
@@ -39,7 +48,8 @@ export default class Prob15 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">“지금 우리 백신 개발 마무리 단계인데, 여기에 필요한 시약 정보를 아까 무은재 기념관에서 찾아보니 없었어. 빨리 자료를 찾아야 하는데 청암에 있는 것 같아.”
@@ -78,7 +88,8 @@ export default class Prob15 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

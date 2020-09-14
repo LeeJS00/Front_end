@@ -14,7 +14,8 @@ export default class Prob23 extends Component {
       link : "/",
       answer:"",
       isOpen:false,
-      img:null
+      img:null,
+      response:false
     };
   }
   handleKeyPress = (e) => {
@@ -23,6 +24,13 @@ export default class Prob23 extends Component {
     }
   }
   componentDidMount() {
+    dataService.goPage(23).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
     dataService.getImage('23-1').then(response=>{
       const base64 = btoa(
         new Uint8Array(response.data).reduce(
@@ -56,7 +64,8 @@ export default class Prob23 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">학생회관에서 나온 후 지성이 정신 차릴 때까지 기다린다.
@@ -109,7 +118,8 @@ export default class Prob23 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

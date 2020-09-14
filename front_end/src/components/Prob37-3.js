@@ -14,7 +14,8 @@ export default class Prob37_3 extends Component {
       link : "/",
       answer:"",
       isOpen:false,
-      img:null
+      img:null,
+      response:false
     };
   }
   handleKeyPress = (e) => {
@@ -23,6 +24,13 @@ export default class Prob37_3 extends Component {
     }
   }
   componentDidMount() {
+    dataService.goPage(37).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
     dataService.getImage('37_4-1').then(response=>{
       const base64 = btoa(
         new Uint8Array(response.data).reduce(
@@ -58,7 +66,8 @@ export default class Prob37_3 extends Component {
 
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">바로 연구소의 생산라인을 가동시켜 백신 대량 생산에 들어간다.
@@ -109,7 +118,8 @@ export default class Prob37_3 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

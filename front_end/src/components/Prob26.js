@@ -14,11 +14,19 @@ export default class Prob26 extends Component {
       answer:"",
       link : "/",
       isOpen:false,
-      img:null
+      img:null,
+      response:false
     };
   }
   
   componentDidMount() {
+    dataService.goPage(26).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
     dataService.getImage('26-1').then(response=>{
       const base64 = btoa(
         new Uint8Array(response.data).reduce(
@@ -57,7 +65,8 @@ export default class Prob26 extends Component {
     });;
   }
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom"> [박태준 학술기념관 (청암)]
@@ -114,7 +123,8 @@ export default class Prob26 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

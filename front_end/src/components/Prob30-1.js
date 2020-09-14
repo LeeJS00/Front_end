@@ -12,7 +12,17 @@ export default class Prob30_1 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
+  }
+  componentDidMount() {
+    dataService.goPage(30).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
   }
 
   handleKeyPress = (e) => {
@@ -39,7 +49,8 @@ export default class Prob30_1 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom"> 자물쇠가 풀렸다. 상자 안에는 바이러스에 관한 수많은 연구논문이 있었으며 현재 KAVID-99에 맞는 연구논문을 찾기 시작한다.
@@ -83,7 +94,8 @@ export default class Prob30_1 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

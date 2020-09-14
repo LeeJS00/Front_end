@@ -14,7 +14,8 @@ export default class Prob37_1 extends Component {
       link : "/",
       answer:"",
       isOpen:false,
-      img:null
+      img:null,
+      response:false
     };
   }
   handleKeyPress = (e) => {
@@ -23,6 +24,13 @@ export default class Prob37_1 extends Component {
     }
   }
   componentDidMount() {
+    dataService.goPage(37).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
     dataService.getImage('37_2-1').then(response=>{
       const base64 = btoa(
         new Uint8Array(response.data).reduce(
@@ -57,7 +65,8 @@ export default class Prob37_1 extends Component {
     });
   }
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">문을 닫자마자 안쪽에서 엄청난 힘으로 문을 미는 게 느껴졌고,
@@ -111,7 +120,8 @@ export default class Prob37_1 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

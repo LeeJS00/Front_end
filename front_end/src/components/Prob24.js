@@ -14,10 +14,18 @@ export default class Prob24 extends Component {
       link : "/",
       answer:"",
       isOpen:false,
-      img:null
+      img:null,
+      response:false
     };
   }
   componentDidMount() {
+    dataService.goPage(24).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
     dataService.getImage('24-1').then(response=>{
       const base64 = btoa(
         new Uint8Array(response.data).reduce(
@@ -56,7 +64,8 @@ export default class Prob24 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">“이게 뭐지..?”
@@ -112,7 +121,8 @@ export default class Prob24 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

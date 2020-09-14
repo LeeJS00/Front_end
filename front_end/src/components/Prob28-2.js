@@ -15,7 +15,8 @@ export default class Prob28_2 extends Component {
       link : "/",
       answer:"",
       isOpen:false,
-      img:null
+      img:null,
+      response:false
     };
   }
   handleKeyPress = (e) => {
@@ -25,6 +26,13 @@ export default class Prob28_2 extends Component {
   }
   
   componentDidMount() {
+    dataService.goPage(28).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
     dataService.getImage('28_3-1').then(response=>{
       const base64 = btoa(
         new Uint8Array(response.data).reduce(
@@ -59,7 +67,8 @@ export default class Prob28_2 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom"> 하지만 몇 분 지나지 않아 아래서 유리가 깨지는 소리에 잠을 깬다.
@@ -112,7 +121,8 @@ export default class Prob28_2 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

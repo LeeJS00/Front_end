@@ -12,7 +12,17 @@ export default class Prob20 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
+  }
+  componentDidMount() {
+    dataService.goPage(20).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
   }
   handleKeyPress = (e) => {
     if(e.key ==="Enter") {
@@ -39,7 +49,8 @@ export default class Prob20 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">몇 분이 지났을까, 깨어나 보니 승훈의 팔과 다리는 밧줄로 묶여있었다.
@@ -78,7 +89,8 @@ export default class Prob20 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
+        </div>)
+      :(<div/>))}
+      </div>);
   }
 }

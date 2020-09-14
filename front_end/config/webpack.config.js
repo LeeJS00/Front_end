@@ -298,14 +298,7 @@ module.exports = function(webpackEnv) {
           'scheduler/tracing': 'scheduler/tracing-profiling',
         }),
         ...(modules.webpackAliases || {}),
-      },/*
-      devServer:{
-        port: '4000',
-        open: true,
-        proxy: {
-          "/": "http://localhost"
-        }
-      },*/
+      },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
         // guards against forgotten dependencies and such.
@@ -324,6 +317,9 @@ module.exports = function(webpackEnv) {
         // from the current package.
         PnpWebpackPlugin.moduleLoader(module),
       ],
+    },
+    devServer: {
+      stats: { chunks: false }
     },
     module: {
       strictExportPresence: true,

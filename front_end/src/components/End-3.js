@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link} from "react-router-dom";
 import "./maze.css"
+import dataService from "../services/user.service";
+
 
 export default class End3 extends Component {  
   constructor(props) {
@@ -9,9 +11,20 @@ export default class End3 extends Component {
 
     };
   }
+  componentDidMount() {
+    dataService.goPage(36).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
+  }
 
   render() {    
     return (
+      <div>
+      {((this.state.response) ? (
         <div>
         <div className="story">
           <div className="marginbottom">교수들은 머지않아 대피소 사람들이 다 맞을 수 있는 양의 백신을 만들었고,
@@ -23,6 +36,8 @@ export default class End3 extends Component {
           <Link to="/gxWZcU9fYanAI9oVt4PG3LKK/6fu5joecKr6JBlkP5E1="> <button className="btn">완료</button></Link>
         </div>   
       </div>
-    );
+    )
+    :(<div/>))}
+    </div>);
   }
 }

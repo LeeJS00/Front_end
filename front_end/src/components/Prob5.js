@@ -12,7 +12,17 @@ export default class Prob5 extends Component {
     this.state = {
       answer:"",
       link : "/",
+      response:false
     };
+  }
+  componentDidMount() {
+    dataService.goPage(5).then(res=> {
+      if(res.data.r === true) {
+        this.setState({
+          response:true
+        })
+      }
+    })
   }
   handleKeyPress = (e) => {
     if(e.key ==="Enter") {
@@ -39,7 +49,8 @@ export default class Prob5 extends Component {
   }
 
   render() {
-    return (
+    return (<div>
+      {((this.state.response) ? (
       <div>
         <div className="story">
           <div className="marginbottom">좀비가 된 교수님이 있는 자신의 연구실에 다시 돌아갈 수 없는 상황이 된 승훈은 지성의 연구실에서 백신 개발을 돕기로 한다. 
@@ -75,7 +86,8 @@ export default class Prob5 extends Component {
           <Link to={this.state.link} ><button className={'btn'}>이동</button></Link>
           </div>
         ))}
-      </div>
-    );
-  }
+        </div>)
+      :(<div/>))}
+      </div>);
+    }
 }
