@@ -29,13 +29,17 @@ export default class Prob2 extends Component {
     this.setState({
       answer: ''
     });
+    if(this.state.answer === "; ~~;~~~; ~ ; ~  ;~  ;") {
+    }
+    else {
     dataService.getAns('2',this.state.answer).then(response=>{
       this.setState({
         link: response.data
       })
     }).catch(function (error) {
       console.log(error);
-    });;
+    });
+    }
   }
 
   render() {

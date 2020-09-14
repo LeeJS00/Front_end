@@ -28,7 +28,7 @@ export default class End1 extends Component {
           </div>
         </div>        
         <div className="center">
-          <Link to="/UufKY8hapbOrkagktFbwm8RcuJxw1RdLtB11MnqA4fU="> <button className="btn">완료</button></Link>
+          <Link to="/UufKY8hapbOrkagktFbwm8RcuJxw1RdLtB11MnqA4fU1="> <button className="btn">완료</button></Link>
         </div>   
       </div>
     );
